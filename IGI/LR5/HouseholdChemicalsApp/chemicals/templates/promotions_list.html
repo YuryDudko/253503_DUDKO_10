@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Промокоды и купоны</h2>
+<ul>
+    {% for promo in promotions_list %}
+    <li>
+        <h3>Код: {{ promo.code }}</h3>
+        <p>{% if promo.is_active %}Активен{% else %}Неактивен{% endif %}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

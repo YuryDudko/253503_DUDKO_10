@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Панель администратора</h2>
+
+<h3>Прайс-лист на товары</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Список заказчиков, сгруппированных по городам</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Город</th>
+            <th>Количество заказчиков</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for group in customers_by_city %}
+        <tr>
+            <td>{{ group.city }}</td>
+            <td>{{ group.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Товар с наибольшим спросом</h3>
+<p>{{ most_popular_product.name }} - {{ most_popular_product.num_sales }} продаж</p>
+
+<h3>Товар с наименьшим спросом</h3>
+<p>{{ least_popular_product.name }} - {{ least_popular_product.num_sales }} продаж</p>
+
+<h3>Ежемесячный объем продаж товаров</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Месяц</th>
+            <th>Товар</th>
+            <th>Объем продаж</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sale in monthly_sales %}
+        <tr>
+            <td>{{ sale.month|date:"F Y" }}</td>
+            <td>{{ sale.products__name }}</td>
+            <td>{{ sale.total_sales }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Годовой отчет поступлений от продаж</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Год</th>
+            <th>Общая сумма поступлений</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for revenue in yearly_revenue %}
+        <tr>
+            <td>{{ revenue.year|date:"Y" }}</td>
+            <td>{{ revenue.total_revenue }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Визуализация данных</h3>
+<div>
+    <h2>График ежемесячного объема продаж</h2>
+    {{ sales_chart_html|safe }}
+</div>
+<!-- <h3>Визуализация данных</h3>
+<div id="charts"></div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    // Здесь код для визуализации данных с использованием Plotly
+    // Пример кода для линейного графика:
+    var trace1 = {
+        x: {{ monthly_sales|safe }},
+        y: {{ monthly_sales|safe }},
+        type: 'scatter'
+    };
+    var data = [trace1];
+    Plotly.newPlot('charts', data);
+</script> -->
+
+{% endblock %}

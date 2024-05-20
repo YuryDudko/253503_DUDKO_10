@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Пункты самовывоза</h2>
+<ul>
+    {% for point in points %}
+    <li>
+        <strong>{{ point.name }}</strong><br>
+        Адрес: {{ point.address }}<br>
+        Телефон: {{ point.phone }}<br>
+        Часы работы: {{ point.hours }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

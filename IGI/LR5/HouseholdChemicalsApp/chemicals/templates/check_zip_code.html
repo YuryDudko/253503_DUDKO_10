@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Проверка индекса</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="zip_code">Введите почтовый индекс:</label>
+    <input type="text" id="zip_code" name="zip_code" required>
+    <button type="submit">Проверить</button>
+</form>
+
+{% if data %}
+    <h3>Информация о почтовом индексе {{ data.post_code }}</h3>
+    <p><strong>Страна:</strong> {{ data.country }}</p>
+    <p><strong>Место:</strong> {{ data.place_name }}, {{ data.state }}</p>
+{% endif %}
+{% endblock %}

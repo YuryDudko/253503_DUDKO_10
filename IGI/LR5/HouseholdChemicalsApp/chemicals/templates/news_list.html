@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Новости</h2>
+<ul>
+    {% for news in news_list %}
+    <li>
+        <h3>{{ news.title }}</h3>
+        <p>{{ news.content|truncatewords:30 }}</p>
+        <img src="{{ news.image }}" alt="{{ news.title }}">
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_news' %}">Добавить новость</a>
+{% endblock %}
+
