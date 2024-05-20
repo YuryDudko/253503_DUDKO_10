@@ -1,0 +1,13 @@
+Number of sentences: 7
+Number of sentences by type:
+Narrative: 6
+Interrogative: 2
+Imperative: 1
+Average sentence length: 19.285714285714285
+Average word length: 3.7037037037037037
+Number of smileys: 2
+Words including characters from 'g' to 'o': No, Go
+Is valid email: False
+Number of words: 27
+Longest word: statement, Index: 18
+Odd words: The, brown, jumps, the, dog, it, question, it, a, dfdfdfdf, com, away, do, want
