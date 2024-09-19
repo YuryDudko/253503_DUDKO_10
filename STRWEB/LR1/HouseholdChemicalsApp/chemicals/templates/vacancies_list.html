@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Вакансии</h2>
+<ul>
+    {% for vacancy in vacancies_list %}
+    <li>
+        <h3>{{ vacancy.title }}</h3>
+        <p>{{ vacancy.description }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

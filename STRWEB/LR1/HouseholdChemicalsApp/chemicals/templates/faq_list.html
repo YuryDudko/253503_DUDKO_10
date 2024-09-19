@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Словарь терминов и понятий</h2>
+<ul>
+    {% for faq in faq_list %}
+    <li>
+        <h3>{{ faq.question }}</h3>
+        <p>{{ faq.answer }}</p>
+        <p>Добавлено: {{ faq.date_added }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Контакты</h2>
+<ul>
+    {% for contact in contacts_list %}
+    <li>
+        {% if contact.photo %}
+        <img src="{{ contact.photo }}" alt="{{ contact.first_name }}" style="width: 100px; height: 100px;">
+        {% endif %}
+        <h3>{{ contact.first_name }}</h3>
+        <p>{{ contact.position }}</p>
+        <p>Телефон: {{ contact.contact_info }}</p>
+        <p>Возраст: {{ contact.age }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

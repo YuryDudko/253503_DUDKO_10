@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Панель сотрудника</h2>
+
+<h3>Заказы</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Клиент</th>
+            <th>Товары</th>
+            <th>Количество</th>
+            <th>Дата заказа</th>
+            <th>Дата доставки</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.customer.first_name }} {{ order.customer.last_name }}</td>
+            <td>
+                <ul>
+                {% for product in order.products.all %}
+                    <li>{{ product.name }}</li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.order_date }}</td>
+            <td>{{ order.delivery_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Пользователи</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>Адрес</th>
+            <th>Город</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.city }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Проданные товары</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Название товара</th>
+            <th>Количество проданных единиц</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in sold_products %}
+        <tr>
+            <td>{{ item.products__name }}</td>
+            <td>{{ item.total_quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

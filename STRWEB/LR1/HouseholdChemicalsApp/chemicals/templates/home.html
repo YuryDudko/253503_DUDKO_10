@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Последняя статья</h2>
+{% if latest_news %}
+    <h3>{{ latest_news.title }}</h3>
+    <p>{{ latest_news.content|truncatewords:30 }}</p>
+    <img src="{{ latest_news.image }}" alt="{{ latest_news.title }}">
+{% else %}
+    <p>Нет опубликованных статей.</p>
+{% endif %}
+{% endblock %}

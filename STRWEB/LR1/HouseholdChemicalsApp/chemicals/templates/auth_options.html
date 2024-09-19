@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Личный кабинет</h2>
+<p>Вы не вошли в систему. Пожалуйста, войдите или зарегистрируйтесь.</p>
+<a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
+<a href="{% url 'register' %}" class="btn btn-secondary">Зарегистрироваться</a>
+{% endblock %}
