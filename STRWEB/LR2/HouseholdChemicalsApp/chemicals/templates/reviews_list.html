@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Отзывы</h2>
+<ul>
+    {% for review in reviews_list %}
+    <li>
+        <h3>{{ review.user.username }}</h3>
+        <p>Оценка: {{ review.rating }}</p>
+        <p>{{ review.text }}</p>
+        <p>Добавлено: {{ review.date_added }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+    <a href="{% url 'add_review' %}" class="btn btn-primary">Добавить отзыв</a>
+{% else %}
+    <p>Для добавления отзыва нужно <a href="{% url 'profile_view' %}">Войти в аккаунт или зарегистрироваться</a>.</p>
+{% endif %}
+{% endblock %}

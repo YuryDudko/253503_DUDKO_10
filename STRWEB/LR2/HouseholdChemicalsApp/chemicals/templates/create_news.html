@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Создать новость</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="title">Заголовок:</label>
+    <input type="text" id="title" name="title" required>
+    <br>
+    
+    <label for="short_description">Краткое описание:</label>
+    <textarea id="short_description" name="short_description" rows="3" maxlength="300" required></textarea>
+    <br>
+    
+    <label for="content">Контент:</label>
+    <textarea id="content" name="content" rows="5" required></textarea>
+    <br>
+    
+    <button type="submit">Создать</button>
+</form>
+{% endblock %}
