@@ -1,13 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Промокоды и купоны</h2>
-<ul>
-    {% for promo in promotions_list %}
-    <li>
-        <h3>Код: {{ promo.code }}</h3>
-        <p>{% if promo.is_active %}Активен{% else %}Неактивен{% endif %}</p>
-    </li>
-    {% endfor %}
-</ul>
+<section aria-labelledby="promo-heading">
+    <header>
+        <h2 id="promo-heading">Промокоды и купоны</h2>
+    </header>
+
+    <!-- Список действующих и архивных промокодов -->
+    <ul>
+        {% for promo in promotions_list %}
+        <li>
+            <article itemscope itemtype="https://schema.org/DiscountOffer">
+                <header>
+                    <h3 itemprop="name">Код: {{ promo.code }}</h3>
+                </header>
+                
+                <p>
+                    <!-- Статус промокода -->
+                    <strong>Status:</strong> 
+                    <span itemprop="availability" content="{% if promo.is_active %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}">
+                        {% if promo.is_active %}
+                            <mark>Активен</mark>
+                        {% else %}
+                            <s>Неактивен</s>
+                        {% endif %}
+                    </span>
+                </p>
+                
+                <p>
+                    <!-- Дата истечения (если есть) -->
+                    {% if promo.expiration_date %}
+                    <time datetime="{{ promo.expiration_date|date:'Y-m-d' }}">
+                        Действует до: {{ promo.expiration_date|date:"d.m.Y" }}
+                    </time>
+                    {% else %}
+                    <span>Без срока действия</span>
+                    {% endif %}
+                </p>
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <footer>
+        <p>Конец промокодов</p>
+    </footer>
+</section>
 {% endblock %}
+

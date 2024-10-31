@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полигон для тестирования элементов</title>
+</head>
+<body>
+    <header>
+        <h1>Тестовая страница для элементов HTML</h1>
+        <nav>
+            <ul>
+                <li><a href="#section-listing">Листинг</a></li>
+                <li><a href="#section-abbr">Сокращения и определения</a></li>
+                <li><a href="#section-quote">Цитаты и четверостишие</a></li>
+                <li><a href="#section-links">Ссылки</a></li>
+                <li><a href="#section-lists">Списки</a></li>
+                <li><a href="#section-forms">Форма с элементами управления</a></li>
+                <li><a href="#section-table">Таблица с заголовками</a></li>
+                <li><a href="#section-media">Медиа: Видео, Аудио и Изображения</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- filedset и legend -->
+        <!-- Листинг кода -->
+        <section id="section-listing">
+            <h2>Пример листинга кода</h2>
+            <pre>
+<code>
+def hello_world():
+    print("Hello, World!")
+</code>
+            </pre>
+        </section>
+
+        <!-- Сокращения и определения -->
+        <section id="section-abbr">
+            <h2>Сокращения и определения</h2>
+            <p>Например, <abbr title="HyperText Markup Language">HTML</abbr> является языком разметки для создания веб-страниц.</p>
+            <dl>
+                <dt>API</dt>
+                <dd>Интерфейс прикладного программирования, используемый для взаимодействия программных компонентов.</dd>
+                <dt>REST</dt>
+                <dd>Архитектурный стиль для проектирования сетевых приложений.</dd>
+            </dl>
+        </section>
+
+        <!-- Цитаты и четверостишие -->
+        <section id="section-quote">
+            <h2>Цитаты и четверостишие</h2>
+            <blockquote>
+                «Программирование сегодня — это гонка между инженерами, которые стремятся создать более крупные и совершенные идиотоустойчивые программы, 
+                и Вселенной, которая пытается создать более крупных и совершенных идиотов.»
+                <footer>— Рик Кук</footer>
+            </blockquote>
+            <h3>Четверостишие</h3>
+            <pre>
+Роза красная,
+Фиалка синяя,
+Я люблю кодить,
+И это истина.
+            </pre>
+        </section>
+
+        <!-- Ссылки -->
+        <section id="section-links">
+            <h2>Ссылки</h2>
+            <p>Пример обычной ссылки: <a href="https://www.example.com">Посетите наш сайт</a></p>
+            <p>Ссылка для скачивания документа: <a href="/path/to/document.pdf" download>Скачать PDF</a></p>
+        </section>
+
+        <!-- Списки -->
+        <section id="section-lists">
+            <h2>Списки</h2>
+            <h3>Нумерованный список</h3>
+            <ol>
+                <li>Элемент первый</li>
+                <li>Элемент второй</li>
+                <li>Элемент третий</li>
+            </ol>
+
+            <h3>Маркированный список</h3>
+            <ul>
+                <li>Первый пункт</li>
+                <li>Второй пункт</li>
+                <li>Третий пункт</li>
+            </ul>
+
+            <h3>Вложенные списки</h3>
+            <ul>
+                <li>Первый уровень
+                    <ul>
+                        <li>Второй уровень</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Форма с элементами управления -->
+        <section id="section-forms">
+            <h2>Форма с элементами управления</h2>
+            <form action="/submit" method="post">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="age">Возраст:</label>
+                <input type="number" id="age" name="age" min="18" max="100"><br>
+
+                <label for="feedback">Отзыв:</label>
+                <textarea id="feedback" name="feedback" rows="4"></textarea><br>
+                <wbr>
+                <label for="rating">Оценка:</label>
+                <select id="rating" name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select><br>
+
+                <input type="submit" value="Отправить">
+            </form>
+        </section>
+
+        <!-- Таблица с заголовками -->
+        <section id="section-table">
+            <h2>Таблица с заголовочными ячейками и объединёнными ячейками</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th id="header1">Категория</th>
+                        <th id="header2">Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td headers="header1">Продукты</td>
+                        <td headers="header2">15</td>
+                    </tr>
+                    <tr>
+                        <td headers="header1" colspan="2">Объединённая ячейка</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Медиа: Видео, Аудио и Изображения -->
+        <section id="section-media">
+            <h2>Медиа: Видео, Аудио и Изображения</h2>
+            
+            <h3>Изображение </h3>
+            <img src="https://www.bytovaya-himiya.ru/wp-content/uploads/2018/10/bytovaya-himiya-klassifikatsiya.jpg" alt="Пример изображения" style="max-width: 100%; height: auto;">
+
+            <h3>Видеоплеер</h3>
+            <video controls width="320" height="240">
+                <source src="movie.mp4" type="video/mp4">
+                Ваш браузер не поддерживает тег video.
+            </video>
+
+            <h3>Аудиоплеер</h3>
+            <audio controls>
+                <source src="audio.mp3" type="audio/mp3">
+                Ваш браузер не поддерживает тег audio.
+            </audio>
+        </section>
+
+        <!-- iframe -->
+        <section id="section-iframe">
+            <h2>Встраивание iframe</h2>
+            <iframe src="https://www.youtube.com/embed/bWTjzyOR_78" title="Пример iframe" width="400" height="300"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Тестовая страница</p>
+    </footer>
+</body>
+</html>

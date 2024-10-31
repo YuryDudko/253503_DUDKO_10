@@ -1,14 +1,32 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h2>Словарь терминов и понятий</h2>
-<ul>
-    {% for faq in faq_list %}
-    <li>
-        <h3>{{ faq.question }}</h3>
-        <p>{{ faq.answer }}</p>
-        <p>Добавлено: {{ faq.date_added }}</p>
-    </li>
-    {% endfor %}
-</ul>
+{% block meta %}
+    <!-- SEO и метаданные для страницы FAQ -->
+    <meta name="description" content="Часто задаваемые вопросы по бытовой химии. Узнайте больше о продуктах и услугах компании.">
+    <meta name="keywords" content="бытовая химия, вопросы, ответы, faq, бытовая продукция">
+    <meta property="og:title" content="Словарь терминов и понятий - Часто задаваемые вопросы">
+    <meta property="og:description" content="Наиболее часто задаваемые вопросы по бытовой химии и наши ответы.">
 {% endblock %}
+
+{% block content %}
+    <section itemscope itemtype="https://schema.org/FAQPage">
+        <h2>Словарь терминов и понятий</h2>
+            {% for faq in faq_list %}
+            <li itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <!-- Вопрос -->
+                <details>
+                    <summary itemprop="name">
+                        <span style="font-size: large;">{{ faq.question }}</span>
+                    </summary>
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <!-- Ответ -->
+                        <p itemprop="text">{{ faq.answer }}</p>
+                        <p>Добавлено: {{ faq.date_added }}</p>
+                    </div>
+                </details>
+            </li>
+            {% endfor %}
+    </section>
+{% endblock %}
+
+

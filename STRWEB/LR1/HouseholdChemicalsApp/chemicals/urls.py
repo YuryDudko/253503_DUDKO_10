@@ -44,6 +44,17 @@ urlpatterns = [
     path('check_zip_code/', views.check_zip_code, name='check_zip_code'),
 
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
+
+    path('product/<int:id>/', views.product_detail, name='product_detail'),
+    path('update_cart/<int:product_id>/', views.update_cart, name='update_cart'),
+    path('remove_from_cart/<int:product_id>/', views.remove_from_cart, name='remove_from_cart'),
+
+    path('payment/', views.payment_view, name='payment'),
+    path('add_to_cart_item/<int:product_id>/', views.add_to_cart_item, name='add_to_cart_item'),
+
+    path('news/<int:id>/', views.news_detail, name='news_detail'),
+    path('test-page/', views.test_page, name='test_page'),
+
 ]
 
 if settings.DEBUG:

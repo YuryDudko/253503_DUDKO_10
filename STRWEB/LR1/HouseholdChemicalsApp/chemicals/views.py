@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import login, authenticate , logout
 from .forms import UserRegistrationForm , ReviewForm , ProfileForm , LoginForm , CustomerForm , EmployeeForm
-from .models import Profile, Employee, Customer , CompanyInfo, News, FAQ, Contacts, Vacancies, Review, Promotion , Product , Order , OrderItem , PickupPoint, News
+from .models import Profile, Employee, Customer , CompanyInfo, News, FAQ, Contacts, Vacancies, Review, Promotion , Product , Order , OrderItem , PickupPoint, News , Partner , NewsArticle
 from django.http import HttpResponse , JsonResponse
 from .decorators import superuser_required, role_required
 from django.contrib.auth.decorators import login_required , user_passes_test
@@ -13,6 +13,9 @@ from django.db.models.functions import TruncMonth, TruncYear
 import pandas as pd
 import plotly.express as px
 import logging
+import os
+import random
+from django.conf import settings
 
 logger = logging.getLogger('chemicals')
   
@@ -160,8 +163,15 @@ def logout_view(request):
 
 #navigation
 def home(request):
-    latest_news = News.objects.latest('date_added') if News.objects.exists() else None
-    return render(request, 'home.html', {'latest_news': latest_news})
+    latest_news = NewsArticle.objects.latest('published_date') if NewsArticle.objects.exists() else None
+    products = Product.objects.all()  # Получаем список всех товаров
+    partners = Partner.objects.all()  # Получаем список всех партнеров для таблицы
+    context = {
+        'latest_news': latest_news,
+        'products': products,
+        'partners': partners,
+    }
+    return render(request, 'home.html', context)
 
 def company_info(request):
     company_info = get_object_or_404(CompanyInfo)
@@ -202,19 +212,50 @@ def fetch_dog_image():
         return response.json()['message']
     return None
 
+# def news_list(request):
+#     news_list = News.objects.all()
+#     return render(request, 'news_list.html', {'news_list': news_list})
+
 def news_list(request):
-    news_list = News.objects.all()
-    return render(request, 'news_list.html', {'news_list': news_list})
+    # Получаем все статьи из базы данных, отсортированные по дате публикации
+    articles = NewsArticle.objects.all()
+    
+    # Передаем список статей в шаблон 'news_list.html'
+    return render(request, 'news_list.html', {'articles': articles})
+
+# def create_news(request):
+#     if request.method == 'POST':
+#         title = request.POST.get('title')
+#         content = request.POST.get('content')
+#         image_url = fetch_dog_image()
+#         if image_url:
+#             news = News(title=title, content=content, image=image_url)
+#             news.save()
+#             return redirect('news_list')
+#     return render(request, 'create_news.html')
 
 def create_news(request):
     if request.method == 'POST':
         title = request.POST.get('title')
+        short_description = request.POST.get('short_description')
         content = request.POST.get('content')
-        image_url = fetch_dog_image()
-        if image_url:
-            news = News(title=title, content=content, image=image_url)
-            news.save()
-            return redirect('news_list')
+
+        # Выбор случайного изображения из папки 'news/'
+        image_path = os.path.join(settings.MEDIA_ROOT, 'news/')
+        random_image = random.choice(os.listdir(image_path))
+
+        # Создание и сохранение новости
+        news = NewsArticle(
+            title=title,
+            short_description=short_description,
+            content=content,
+            image=f'news/{random_image}',  # Сохраняем относительный путь
+            published_date=timezone.now()
+        )
+        news.save()
+
+        return redirect('news_list')
+
     return render(request, 'create_news.html')
 
 def faq_list(request):
@@ -236,11 +277,14 @@ def reviews_list(request):
     reviews_list = Review.objects.all()
     return render(request, 'reviews_list.html', {'reviews_list': reviews_list})
 
+@login_required
 def add_review(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            form.save()
+            review = form.save(commit=False)
+            review.user = request.user
+            review.save()
             return redirect('reviews_list')
     else:
         form = ReviewForm()
@@ -330,6 +374,37 @@ def profile_edit(request):
     else:
         return render(request, 'auth_options.html')
 
+# def add_to_cart_item(request, product_id):
+#     product = get_object_or_404(Product, id=product_id)
+#     cart, created = Cart.objects.get_or_create(user=request.user, is_active=True)
+    
+#     cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+#     if not created:
+#         cart_item.quantity += 1
+#     cart_item.save()
+    
+#     return redirect('cart')
+def add_to_cart_item(request, product_id):
+    # Получаем продукт по его ID или возвращаем 404, если он не существует
+    product = get_object_or_404(Product, id=product_id)
+
+    # Получаем текущую корзину из сессии или создаём новую, если её нет
+    cart = request.session.get('cart', {})
+
+    # Проверяем, есть ли продукт в корзине
+    if str(product_id) in cart:
+        # Если продукт уже есть в корзине, увеличиваем его количество
+        cart[str(product_id)] += 1
+    else:
+        # Если продукта нет в корзине, добавляем его с количеством 1
+        cart[str(product_id)] = 1
+
+    # Обновляем сессию корзины
+    request.session['cart'] = cart
+
+    # Перенаправляем пользователя на страницу корзины
+    return redirect('cart')
+
 def add_to_cart(request):
     if request.method == 'POST':
         product_ids = request.POST.getlist('product_ids')
@@ -355,6 +430,42 @@ def cart_view(request):
         cart_items.append({'product': product, 'quantity': quantity})
 
     return render(request, 'cart.html', {'cart_items': cart_items})
+
+# Обновление количества товаров в корзине
+def update_cart(request, product_id):
+    # Получаем корзину из сессии
+    cart = request.session.get('cart', {})
+
+    if request.method == 'POST':
+        # Получаем количество товара из POST-запроса
+        quantity = int(request.POST.get('quantity', 1))
+
+        if quantity > 0:
+            # Обновляем количество товара в корзине
+            cart[str(product_id)] = quantity
+        else:
+            # Если количество равно 0, удаляем товар из корзины
+            if str(product_id) in cart:
+                del cart[str(product_id)]
+
+        # Обновляем сессию корзины
+        request.session['cart'] = cart
+
+    return redirect('cart')
+
+# Удаление товара из корзины
+def remove_from_cart(request, product_id):
+    # Получаем корзину из сессии
+    cart = request.session.get('cart', {})
+
+    # Если товар есть в корзине, удаляем его
+    if str(product_id) in cart:
+        del cart[str(product_id)]
+
+    # Обновляем сессию корзины
+    request.session['cart'] = cart
+
+    return redirect('cart')
 
 def place_order(request):
     if request.method == 'POST':
@@ -407,5 +518,27 @@ def check_zip_code(request):
         return render(request, 'check_zip_code.html', {'data': formatted_data})
     return render(request, 'check_zip_code.html')
 
+def product_detail(request, id):
+    product = get_object_or_404(Product, id=id)
+    return render(request, 'product_detail.html', {'product': product})
 
+def payment_view(request):
+    if request.method == 'POST':
+        # Проверка данных для оплаты (это просто пример, настоящая оплата сложнее)
+        card_number = request.POST.get('card_number')
+        expiry_date = request.POST.get('expiry_date')
+        cvv = request.POST.get('cvv')
 
+        # Если оплата прошла (проверка данных успешна)
+        if card_number and expiry_date and cvv:
+            return redirect('place_order')
+        else:
+            return render(request, 'payment.html', {'error': 'Ошибка при оплате. Попробуйте снова.'})
+    return render(request, 'payment.html')
+
+def news_detail(request, id):
+    article = get_object_or_404(NewsArticle, pk=id)
+    return render(request, 'news_detail.html', {'article': article})
+
+def test_page(request):
+    return render(request, 'test_page.html')

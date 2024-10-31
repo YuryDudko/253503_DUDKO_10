@@ -12,8 +12,7 @@ class Employee(models.Model):
         validators=[RegexValidator(regex=r'^\+375 \(29\) \d{3}-\d{2}-\d{2}$', message="Телефон должен быть в формате +375 (29) XXX-XX-XX")]
     )
     age = models.PositiveIntegerField(validators=[MinValueValidator(18, message="Возраст должен быть 18 лет и старше")])
-    #photo = models.ImageField(upload_to='employee_photos/', blank=True, null=True)  # Поле для фото
-    photo = models.URLField(null=True, blank=True)
+    photo = models.ImageField(upload_to='employees_photos/', null=True, blank=True)
 
 
     def __str__(self):
@@ -79,7 +78,11 @@ class OrderItem(models.Model):
 #Website info pages
 
 class CompanyInfo(models.Model):
-    about_text = models.TextField()
+    about_text = models.TextField(verbose_name="Информация о компании")
+    video_url = models.URLField(blank=True, null=True, verbose_name="Видео о компании")
+    logo = models.ImageField(upload_to='company/', blank=True, null=True, verbose_name="Логотип")
+    history = models.TextField(verbose_name="История компании")
+    requisites = models.TextField(verbose_name="Реквизиты компании")
 
     def __str__(self):
         return self.about_text
@@ -89,6 +92,16 @@ class News(models.Model):
     content = models.TextField()
     image = models.URLField()
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+class NewsArticle(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    short_description = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='news/')
+    published_date = models.DateField()
 
     def __str__(self):
         return self.title
@@ -118,12 +131,13 @@ class Vacancies(models.Model):
         return self.title
 
 class Review(models.Model):
-    name = models.CharField(max_length=100)
-    rating = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Связь с пользователем
     text = models.TextField()
+    rating = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
-        return self.name
+        return f"Отзыв от {self.user.username}"
 
 class Promotion(models.Model):
     code = models.CharField(max_length=50)
@@ -162,6 +176,14 @@ class PickupPoint(models.Model):
     address = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     hours = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Partner(models.Model):
+    name = models.CharField(max_length=100)
+    logo = models.ImageField(upload_to='partners/')
+    website = models.URLField()
 
     def __str__(self):
         return self.name

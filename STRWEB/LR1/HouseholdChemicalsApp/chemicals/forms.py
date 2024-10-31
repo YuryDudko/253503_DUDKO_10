@@ -26,14 +26,12 @@ class LoginForm(forms.Form):
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['name', 'rating', 'text']
+        fields = ['rating', 'text']
         labels = {
-            'name': 'Имя',
             'rating': 'Оценка',
             'text': 'Отзыв',
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
             'rating': forms.Select(choices=[(i, i) for i in range(1, 6)], attrs={'class': 'form-control'}),
             'text': forms.Textarea(attrs={'class': 'form-control'}),
         }
@@ -71,6 +69,7 @@ class EmployeeForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'position': forms.TextInput(attrs={'class': 'form-control'}),
             'contact_info': forms.TextInput(attrs={'placeholder': '+375 (29) XXX-XX-XX'}),
+            'photo': forms.FileInput(attrs={'class': 'form-control-file'}),
         }
 
 class CompanyInfoForm(forms.ModelForm):

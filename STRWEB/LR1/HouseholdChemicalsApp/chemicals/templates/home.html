@@ -1,12 +1,77 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
 <h2>Последняя статья</h2>
 {% if latest_news %}
-    <h3>{{ latest_news.title }}</h3>
-    <p>{{ latest_news.content|truncatewords:30 }}</p>
-    <img src="{{ latest_news.image }}" alt="{{ latest_news.title }}">
+    <article>
+        <h3>{{ latest_news.title }}</h3>
+        <p>{{ latest_news.content|truncatewords:30 }}</p>
+        
+        <!-- Проверка, что у статьи есть изображение -->
+        {% if latest_news.image %}
+            <img src="{{ latest_news.image.url }}" alt="{{ latest_news.title }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>Изображение отсутствует.</p>
+        {% endif %}
+    </article>
 {% else %}
     <p>Нет опубликованных статей.</p>
 {% endif %}
+<h2>Реклама</h2>
+<div class="banner"></div>
+        <img src="{% static 'img/AD1.png' %}" alt="Реклама 1" class="banner-image">
+        <img src="{% static 'img/AD2.png' %}" alt="Реклама 2" class="banner-image">
+</div>
+<h2>Каталог товаров</h2>
+<form method="GET">
+    <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q }}">
+    <button type="submit">Искать</button>
+</form>
+
+<form method="GET">
+    <select name="sort_by">
+        <option value="name">Имя</option>
+        <option value="price">Цена</option>
+    </select>
+    <button type="submit">Сортировать</button>
+</form>
+
+<form method="post" action="{% url 'add_to_cart' %}">
+  {% csrf_token %}
+  <ul>
+      {% for product in products %}
+      <li>
+        <a href="{% url 'product_detail' product.id %}">
+            <strong>{{ product.name }}</strong>
+        </a><br>
+          Цена: {{ product.price }}<br>
+          Единица измерения: {{ product.unit }}<br>
+          <input type="checkbox" name="product_ids" value="{{ product.id }}">
+      </li>
+      {% endfor %}
+  </ul>
+  <button type="submit">Добавить в корзину</button>
+</form>
+
+<h2>Наши партнёры</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Логотип</th>
+            <th>Компания</th>
+            <th>Сайт</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for partner in partners %}
+        <tr>
+            <td><img src="{{ partner.logo.url }}" alt="{{ partner.name }}" style="width: 50px;"></td>
+            <td>{{ partner.name }}</td>
+            <td><a href="{{ partner.website }}" target="_blank">{{ partner.website }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
