@@ -9,24 +9,24 @@
 {% endblock %}
 
 {% block content %}
-    <section itemscope itemtype="https://schema.org/FAQPage">
+    <section itemscope itemtype="https://schema.org/FAQPage" class="faq-section">
         <h2>Словарь терминов и понятий</h2>
+        <ul>
             {% for faq in faq_list %}
-            <li itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <li itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item">
                 <!-- Вопрос -->
-                <details>
-                    <summary itemprop="name">
-                        <span style="font-size: large;">{{ faq.question }}</span>
+                <details class="faq-details">
+                    <summary itemprop="name" class="faq-question">
+                        <span>{{ faq.question }}</span>
                     </summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="faq-answer">
                         <!-- Ответ -->
                         <p itemprop="text">{{ faq.answer }}</p>
-                        <p>Добавлено: {{ faq.date_added }}</p>
+                        <p class="faq-date">Добавлено: {{ faq.date_added }}</p>
                     </div>
                 </details>
             </li>
             {% endfor %}
+        </ul>
     </section>
 {% endblock %}
-
-

@@ -1,0 +1,346 @@
+/* Подключение шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Roboto', Arial , sans-serif; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #b688db; 
+    color: #333; 
+}
+
+
+.header {
+    background-color: #551680; 
+    padding: 20px;
+    text-align: center;
+    color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.header__title {
+    font-size: 2.5em; /* Увеличенный размер заголовка */
+    margin: 0;
+}
+
+.nav {
+    margin: 20px 0;
+}
+
+.nav__list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav__item {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav__link {
+    text-decoration: none; 
+    color: white; 
+    transition: color 0.3s ease; 
+}
+
+.nav__link:hover {
+    color: #FFD700; 
+}
+
+/* Ссылка, которую еще не посещали */
+.nav__link:link {
+    color: #ffffff; /* Белый цвет для непосещенных ссылок */
+}
+
+/* Ссылка, которую уже посещали */
+.nav__link:visited {
+    color: #cccccc; /* Серый цвет для посещенных ссылок */
+}
+
+/* Ссылка при наведении */
+.nav__link:hover {
+    color: #FFD700; /* Золотистый цвет при наведении */
+}
+
+/* Ссылка при нажатии */
+.nav__link:active {
+    color: #FF4500; /* Оранжево-красный цвет при нажатии */
+}
+
+/* Ссылка в фокусе */
+.nav__link:focus {
+    outline: 2px dashed #FFD700; /* Пунктирная рамка вокруг ссылки при фокусе */
+    outline-offset: 2px;
+}
+
+
+.section {
+    padding: 20px;
+    margin: 10px 0;
+    background-color: white; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.section__title {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #007BFF; 
+}
+
+
+a[href] {
+    color: #007BFF; /* Все ссылки с атрибутом href */
+}
+
+a[href^="https"] {
+    font-weight: bold; /* Ссылки, начинающиеся с https */
+}
+
+a[href$=".pdf"] {
+    text-decoration: underline; /* Ссылки, заканчивающиеся на .pdf */
+}
+
+a[href*="example.com"] {
+    color: #FF5733; /* Ссылки, содержащие example.com в href */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+    border: 1px solid #ccc; /* Все текстовые поля, email и number */
+    border-radius: 4px; 
+    padding: 10px; 
+    width: 100%;
+    box-sizing: border-box; /* Включить отступы и границы в ширину */
+    transition: border-color 0.3s ease;
+}
+
+/* Стили для полей формы в фокусе */
+.form__input:focus, .form__textarea:focus, .form__select:focus {
+    border-color: #007BFF;
+    outline: none; /* Убираем стандартный контур */
+}
+
+/* Обязательные поля */
+.form__input:required, .form__textarea:required {
+    border: 2px solid #28a745; /* Зелёная рамка для обязательных полей */
+}
+
+/* Заблокированные (disabled) поля */
+.form__input:disabled, .form__textarea:disabled, .form__select:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Доступные (enabled) поля */
+.form__input:enabled, .form__textarea:enabled, .form__select:enabled {
+    background-color: #ffffff;
+}
+
+/* Поля с недопустимыми значениями (вне диапазона) */
+.form__input:out-of-range {
+    border: 2px solid #dc3545; /* Красная рамка для значений вне диапазона */
+    background-color: #ffe6e6;
+}
+
+/* Включенные (checked) флажки и переключатели */
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+/* Стили для кнопки отправки */
+.form__submit {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form__submit:hover {
+    background-color: #0056b3;
+}
+
+/* Цитаты: отображение кавычек в зависимости от языка */
+q[lang="en"]::before {
+    content: "“";
+}
+
+q[lang="en"]::after {
+    content: "”";
+}
+
+q[lang="ru"]::before {
+    content: "«";
+}
+
+q[lang="ru"]::after {
+    content: "»";
+}
+
+q[lang="fr"]::before {
+    content: "«";
+}
+
+q[lang="fr"]::after {
+    content: "»";
+}
+
+/* Первые и последние элементы списка */
+.numbered-list__item:first-child {
+    font-weight: bold; 
+}
+
+.bullet-list__item:last-child {
+    color: red; 
+}
+
+/* Псевдоэлементы */
+p::first-letter {
+    font-size: 2em;
+    color: #007BFF;
+}
+
+blockquote::before {
+    content: '«';
+}
+
+blockquote::after {
+    content: '»';
+}
+
+/* Список с кастомными маркерами */
+.bullet-list {
+    list-style-type: none;
+}
+
+.bullet-list__item::before {
+    content: '✓ ';
+}
+
+/* Стиль при выделении текста */
+::selection {
+    background: #007BFF;
+    color: white;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    .header {
+        font-size: 1.5em;
+    }
+
+    .section {
+        padding: 10px;
+    }
+}
+
+/* Для экранов с шириной более 768px, но менее 1024px (планшеты) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+    .container {
+        padding: 15px;
+    }
+}
+
+/* Стили заголовков */
+h1, h2, h3 {
+    text-transform: uppercase;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Параметры абзаца */
+p {
+    font-variant: small-caps;
+    text-indent: 20px;
+    margin-bottom: 10px;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+/* Перенос слов */
+.word-break {
+    word-break: break-word;
+}
+
+/* Подвал */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Таблица */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table__header {
+    background-color: #007BFF;
+    color: rgb(150, 68, 68);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5em;
+}
+
+.table__header > th {
+    color: #ff000f; /* Белый текст для заголовков таблицы */
+    padding: 20px; /* Увеличенные отступы */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Пустые ячейки */
+.table td:empty {
+    background-color: #f0f0f0;
+}
+
+/* Строки таблицы */
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Заголовок над таблицей */
+.table__title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+    caption-side: top; /**/
+}
+
+/* Контейнер таблицы */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+

@@ -3,11 +3,12 @@
 <html>
 <head>
     <title>Household Chemicals</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">
-        <img src="{% static 'img/icon.png' %}" alt="Logo" style="width:100px;">
+        <img src="{% static 'img/icon.png' %}" alt="Logo" style="width:100px;" class="logo">
         <h1>Household Chemicals</h1>
         <nav>
             <a href="{% url 'home' %}">Главная</a>

@@ -1,0 +1,1294 @@
+/* Основные стили */
+body {
+    background-color: #f0f4f8; 
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+h1, .page-title {
+    color: #333;
+}
+
+/* Стили для каталога товаров */
+.catalog-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-form, .sort-form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-input, .sort-select, .search-button, .sort-button {
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Стили для сетки товаров */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+/* Стили для карточек товаров */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-name {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    margin-bottom: 15px;
+}
+
+.product-price, .product-unit {
+    font-size: 14px;
+    color: #555;
+}
+
+.add-to-cart-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #45a049;
+}
+
+
+/* Курсор на кнопках */
+button, input[type="checkbox"] {
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Фиксация навигации */
+header nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Стили для последней статьи */
+.latest-article {
+    position: relative; /* Для позиционирования */
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для контейнера партнеров */
+.partners-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Стили для карточек партнеров */
+.partner-card {
+    width: 200px; /* Устанавливаем фиксированную ширину */
+    height: 200px; /* Устанавливаем фиксированную высоту */
+    background-color: #f9f9f9; /* Цвет фона */
+    border-radius: 50%; /* Круглая форма */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: transform 0.2s; /* Плавный переход */
+}
+
+.partner-card:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Стили для логотипа партнера */
+.partner-logo {
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
+}
+
+/* Стили для названия компании */
+.partner-name {
+    font-family: 'Arial', sans-serif; 
+    font-size: 16px; 
+    letter-spacing: 1px;
+    font-kerning: auto;
+    text-align: center; 
+    color: #333; 
+    margin: 0; 
+}
+
+/* Стили для ссылки на сайт партнера */
+.partner-website {
+    text-decoration: none; 
+    color: #0073e6; 
+}
+
+.partner-website:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стили для секции вопросов и ответов */
+.faq-section {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; /* Отступы вокруг секции */
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 28px; 
+    color: #333; 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+/* Стили для каждого элемента вопроса */
+.faq-item {
+    margin-bottom: 15px; /* Отступ между вопросами */
+}
+
+/* Стили для деталей вопроса */
+.faq-details {
+    border: 1px solid #ccc; /* Серый бордер */
+    border-radius: 5px; /* Скругление углов */
+    padding: 15px; /* Отступ внутри деталей */
+    transition: background-color 0.3s; /* Плавный переход фона */
+}
+
+.faq-details:hover {
+    background-color: #f9f9f9; /* Светлый фон при наведении */
+}
+
+/* Стили для вопроса */
+.faq-question {
+    font-size: 18px; /* Размер шрифта для вопроса */
+    color: #0073e6; /* Цвет вопроса */
+    cursor: pointer; /* Курсор при наведении */
+    outline: none; /* Убираем обводку */
+}
+
+/* Стили для ответа */
+.faq-answer {
+    padding-top: 10px; /* Отступ сверху ответа */
+    color: #555; /* Цвет текста ответа */
+}
+
+.faq-date {
+    font-size: 14px; /* Размер шрифта для даты */
+    color: #999; /* Цвет для даты */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+/* Стили для списка контактов */
+.contacts-list {
+    display: flex; /* Используем Flexbox */
+    flex-wrap: wrap; /* перенос элементов на новую строку */
+    justify-content: center; 
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; 
+    margin: 20px 0; 
+}
+
+.contact-item {
+    display: flex; /* Используем Flexbox для элемента контакта */
+    align-items: center;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    padding: 15px; 
+    margin: 10px; 
+    width: calc(33.333% - 20px); /* Устанавливаем ширину, учитывая отступы */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s; 
+}
+
+.contact-item:hover {
+    transform: translateY(-5px); /* Эффект поднятия при наведении */
+}
+
+.contact-photo {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    margin-right: 15px; 
+    object-fit: cover; /* Сохранение пропорций изображения */
+}
+
+.contact-info {
+    flex-grow: 1; /* Позволяет этому блоку занимать оставшееся пространство */
+}
+
+h3 {
+    margin: 0 0 5px; 
+    font-size: 18px; 
+    color: #333; 
+}
+
+p {
+    margin: 5px 0; 
+    color: #555;
+}
+
+/* Локальные стили для страницы Политики конфиденциальности */
+.privacy-policy h2 {
+    font-size: 32px; /* Заголовок */
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/*селекторы потомок*/
+.privacy-policy h3 {
+    font-size: 24px; /* Подзаголовок */
+    color: #444;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.privacy-policy p {
+    font-size: 16px; /* Основной текст */
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.privacy-policy {
+    max-width: 800px; /* Ограничение ширины и центрирование */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Фон и оформление */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Локальные стили для страницы Вакансии */
+.vacancies {
+    max-width: 800px; /* Ограничение ширины и центрирование */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Оформление блока */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vacancies h2 {
+    text-align: center; /* Заголовок секции */
+    color: #333;
+}
+
+.vacancy-item {
+    float: left; /* Расположение элементов вакансий */
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Эффект наведения */
+}
+
+.vacancy-item:hover {
+    transform: scale(1.02);
+}
+
+.vacancy-item h3 {
+    font-size: 20px; /* Заголовок вакансии */
+    color: #444;
+}
+
+.vacancy-item p {
+    font-size: 16px; /* Описание вакансии */
+    color: #555;
+}
+
+/* Очистка плавающих элементов */
+.vacancies::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Локальные стили для раздела отзывов */
+.reviews {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.reviews h2 {
+    text-align: center; /* Центрирование заголовка */
+    color: #333; /* Цвет заголовка */
+}
+
+.reviews-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы списка */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.review-item {
+    background-color: #ffffff; /* Белый фон для блока отзыва */
+    border: 1px solid #ddd; /* Бордер для блока отзыва */
+    border-radius: 5px; /* Скругление углов */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступы между отзывами */
+    transition: box-shadow 0.3s; /* Плавный переход при наведении */
+}
+
+.review-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень при наведении */
+}
+
+.review-user {
+    font-size: 18px; /* Размер шрифта для имени пользователя */
+    font-weight: bold; /* Жирный шрифт для имени пользователя */
+    color: #444; /* Цвет имени пользователя */
+}
+
+.review-rating {
+    font-size: 16px; /* Размер шрифта для оценки */
+    color: #555; /* Цвет для текста оценки */
+}
+
+.review-text {
+    font-size: 14px; /* Размер шрифта для текста отзыва */
+    color: #666; /* Цвет текста отзыва */
+    margin: 10px 0; /* Отступы сверху и снизу */
+}
+
+.review-date {
+    font-size: 12px; /* Размер шрифта для даты добавления */
+    color: #999; /* Цвет для текста даты */
+}
+
+/* Стиль для первой и последней записи, combined selector */
+.review-item.first-review {
+    border-top: 3px solid #4CAF50; /* Зеленая линия для первого отзыва */
+}
+
+.review-item.last-review {
+    border-bottom: 3px solid #f44336; /* Красная линия для последнего отзыва */
+}
+
+/* Стили для кнопок */
+.btn {
+    display: inline-block; /* Инлайн-блок для кнопок */
+    padding: 10px 20px; /* Внутренние отступы кнопки */
+    background-color: #4CAF50; /* Зеленый фон */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругление углов */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Темнее зеленый при наведении */
+}
+
+/* Стили для ссылок */
+.link {
+    color: #0073e6; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.link:visited {
+    color: #551A8B; /* Цвет для посещенной ссылки */
+}
+
+/* Стили для формы отзыва */
+.review-form {
+    max-width: 600px; /* Ограничение ширины формы */
+    margin: 20px auto; /* Центрирование формы */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Фон формы */
+    border: 1px solid #ddd; /* Бордер формы */
+    border-radius: 5px; /* Скругление углов */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.review-form h2 {
+    text-align: center; /* Центрирование заголовка формы */
+    font-family: Arial, sans-serif; /* Основной шрифт для формы */
+    font-size: 16px; /* Общий размер шрифта */
+    color: #333; /* Цвет текста */
+}
+
+/* Стили для элементов формы */
+.form-control {
+    width: 100%; /* Ширина элементов формы */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступы снизу */
+    border: 1px solid #ccc; /* Бордер для элементов формы */
+    border-radius: 4px; /* Скругление углов */
+    font-size: 16px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+    transition: border-color 0.3s; /* Плавный переход для цвета бордера */
+}
+
+/* Стили для фокуса на элементах формы */
+.form-control:focus {
+    border-color: #4CAF50; /* Зеленый бордер при фокусе */
+    outline: none; /* Убираем стандартное обводка при фокусе */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Тень при фокусе */
+}
+
+/* Стили для кнопки отправки */
+.btn {
+    display: inline-block; /* Инлайн-блок для кнопки */
+    padding: 10px 20px; /* Внутренние отступы кнопки */
+    background-color: #4CAF50; /* Зеленый фон */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругление углов */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+    border: none; /* Убираем бордер */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Темнее зеленый при наведении */
+}
+
+/* Стили для ссылок */
+a {
+    color: #0073e6; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+a:visited {
+    color: #551A8B; /* Цвет для посещенной ссылки */
+}
+
+/* Стили для обязательных и доступных элементов */
+.form-control:required {
+    border-color: #f44336; /* Красный бордер для обязательных полей */
+}
+
+.form-control:disabled {
+    background-color: #e9ecef; /* Серый фон для отключенных полей */
+    color: #6c757d; /* Серый текст для отключенных полей */
+}
+
+/* Стили для элементов со значениями вне диапазона */
+.form-control:invalid {
+    border-color: #f44336; /* Красный бордер для недопустимых значений */
+}
+
+/* Стили для включенных флажков и переключателей */
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    accent-color: #4CAF50; /* Цвет для включенных флажков и переключателей */
+}
+
+/* Стили для секции промокодов */
+.promo-section {
+    max-width: 800px; /* Максимальная ширина секции */
+    margin: 0 auto; /* Центрирование секции */
+    padding: 20px; /* Отступы вокруг секции */
+    background-color: #f9f9f9; /* Цвет фона секции */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для секции */
+}
+
+/* Стили для списка промокодов */
+.promo-list {
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+/* Стили для каждого элемента промокода */
+.promo-item {
+    margin-bottom: 15px; /* Отступ между элементами списка */
+}
+
+/* Стили для карточки промокода */
+.promo-card {
+    background-color: #ffffff; /* Цвет фона карточки */
+    padding: 15px; /* Внутренние отступы карточки */
+    border-radius: 5px; /* Скругление углов карточки */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    transition: transform 0.2s; /* Плавный переход при наведении */
+}
+
+/* Эффект при наведении на карточку */
+.promo-card:hover {
+    transform: translateY(-2px); /* Подъем карточки при наведении */
+}
+
+/* Стиль для статуса промокода */
+.promo-status {
+    font-weight: bold; /* Жирный текст */
+}
+
+/* Стиль для активного статуса */
+.active {
+    color: green; /* Цвет текста для активных промокодов */
+}
+
+/* Стиль для неактивного статуса */
+.inactive {
+    color: red; /* Цвет текста для неактивных промокодов */
+    text-decoration: line-through; /* Зачеркивание текста */
+}
+
+/* Стиль для даты истечения промокода */
+.promo-expiration {
+    color: #555; /* Цвет текста для даты */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Стили для нижнего колонтитула */
+footer {
+    text-align: center; /* Центрирование текста */
+    margin-top: 20px; /* Отступ сверху */
+    font-style: italic; /* Курсив для нижнего колонтитула */
+}
+
+
+/* Стили для списка новостей */
+.news-list {
+    display: flex; /* Используем Flexbox для организации списка */
+    flex-wrap: wrap; /* Позволяем элементам переноситься на следующую строку */
+    gap: 20px; /* Отступы между элементами списка */
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+/* Стили для каждой новости */
+.news-article {
+    background-color: #f9f9f9; /* Цвет фона карточки */
+    border-radius: 5px; /* Скругление углов карточки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для карточки */
+    overflow: hidden; /* Скрываем лишнее содержимое */
+    width: calc(33.333% - 20px); /* Ширина карточки в 3 колонки с учетом отступа */
+    transition: transform 0.2s; /* Плавный переход при наведении */
+}
+
+/* Эффект при наведении на карточку */
+.news-article:hover {
+    transform: scale(1.02); /* Увеличение карточки при наведении */
+}
+
+/* Стили для изображения */
+.news-image {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+/* Стили для краткого описания */
+.short-description {
+    display: -webkit-box; /* Используем флексбокс для многострочного текста */
+    -webkit-box-orient: vertical; /* Устанавливаем направление вертикально */
+    -webkit-line-clamp: 3; /* Ограничиваем количество строк до 3 */
+    overflow: hidden; /* Скрываем лишний текст */
+    text-overflow: ellipsis; /* Добавляем многоточие в конце */
+    margin: 10px; /* Отступы вокруг описания */
+}
+
+/* Стили для страницы деталей статьи */
+.news-detail-article {
+    max-width: 1200px; /* Ограничиваем максимальную ширину статьи */
+    margin: 20px auto; /* Центрируем статью */
+}
+
+/* Многоколоночный макет для текста статьи */
+.article-content {
+    column-count: 2; /* Устанавливаем количество колонок */
+    column-gap: 30px; /* Промежуток между колонками */
+}
+
+/* Стили для текста в колонках */
+.article-content p {
+    break-inside: avoid; /* Запрещаем разрывы внутри параграфов */
+    margin-bottom: 15px; /* Отступ снизу для каждого абзаца */
+}
+
+/* Стили для заголовка статьи */
+.news-title {
+    font-size: 24px; /* Размер шрифта заголовка */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стили для даты публикации */
+.publication-date {
+    font-size: 14px; /* Размер шрифта для даты */
+    color: #666; /* Цвет текста */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+/* Стили для изображения статьи */
+.news-detail-image {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    height: auto; /* Соотношение сторон */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+/* Стили для подписи к изображению */
+.news-caption {
+    font-size: 12px; /* Размер шрифта подписи */
+    color: #999; /* Цвет текста подписи */
+}
+
+/* Стили для ссылки "Вернуться к новостям" */
+.read-more {
+    display: inline-block; /* Делаем ссылку блочным элементом для управления размерами */
+    margin: 10px; /* Отступы вокруг ссылки */
+    padding: 8px 12px; /* Внутренние отступы для ссылки */
+    background-color: #007BFF; /* Цвет фона ссылки */
+    color: white; /* Цвет текста ссылки */
+    border-radius: 5px; /* Скругление углов */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Стили для ссылки "Вернуться к новостям" при наведении */
+.read-more:hover {
+    background-color: #0056b3; /* Темнее фон при наведении */
+}
+
+/* Общие стили для информации о компании */
+.company-info {
+    max-width: 800px; /* Ограничиваем максимальную ширину блока */
+    margin: 20px auto; /* Центрируем блок на странице */
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    line-height: 1.6; /* Междустрочный интервал */
+}
+
+/* Стили для заголовков */
+.company-info h2 {
+    border-bottom: 2px solid #007BFF; /* Синяя линия под заголовками */
+    padding-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стили для видео контейнера */
+.video-container {
+    text-align: center; /* Центрируем видео */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Стили для логотипа */
+.logo {
+    width: 100px;
+    transition: transform 0.3s ease; /* Плавный переход для трансформации */
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(5deg); /* Увеличиваем и поворачиваем логотип при наведении */
+}
+
+
+.video-container iframe {
+    width: 100%; /* Делаем видео отзывчивым */
+    height: 315px; /* Фиксированная высота для видео */
+}
+
+/* Стили для заголовка истории компании */
+.history-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    color: #4A4A4A;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #E7F3FE;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+    padding: 0 15px;
+    text-align: justify;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007BFF;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.requisites {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.certificate {
+    border: 2px solid #ccc;
+    padding: 20px;
+    background: linear-gradient(to right, #421f94, #a58fcf);
+    text-align: center;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    border: 10px solid transparent;
+    border-image: url('../img/AD1.png') 30 round round;
+}
+
+.certificate {
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.certificate-header {
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-subtitle {
+    text-align: center;
+    font-size: 1.5em;
+    color: #FFD700;
+}
+
+.certificate-text,
+.certificate-details {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.certificate-company {
+    font-size: 2em;
+    color: #FF4500;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.certificate-location {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.certificate-date {
+    font-size: 1.2em;
+    color: #007BFF;
+}
+
+.certificate-director {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.certificate-association {  
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 30px;
+}
+
+
+/* Прелоадер */
+.preloader {
+    position: relative;
+    width: 120px; 
+    height: 120px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Красный круг в центре */
+.circle.red {
+    position: absolute;
+    width: 30px; 
+    height: 30px; 
+    background-color: red; 
+    border-radius: 50%; 
+}
+
+/* Внешняя окружность */
+.outer-circle {
+    position: absolute;
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; /* Делает круг */
+    border: 2px dashed rgba(0, 0, 0, 0.5); /* Делаем окружность видимой */
+}
+
+/* Средняя окружность */
+.middle-circle {
+    position: absolute;
+    width: 60px; /* Диаметр среднего круга */
+    height: 60px; /* Высота среднего круга */
+    border-radius: 50%; /* Делает круг */
+    border: 2px dashed rgba(0, 0, 0, 0.5); /* Делаем окружность видимой */
+}
+
+/* Внутренняя окружность */
+.inner-circle {
+    position: absolute;
+    width: 40px; /* Диаметр внутреннего круга */
+    height: 40px; /* Высота внутреннего круга */
+    border-radius: 50%; /* Делает круг */
+    border: 2px dashed rgba(0, 0, 0, 0.5); /* Делаем окружность видимой */
+}
+
+/* Точки на окружностях */
+.dot {
+    position: absolute; /* Абсолютное позиционирование */
+    width: 10px; /* Ширина точки */
+    height: 10px; /* Высота точки */
+    background-color: blue; /* Цвет точки */
+    border-radius: 50%; /* Делает точки круглыми */
+}
+
+/* Анимации для вращения точек вокруг красного круга */
+.outer-dot {
+    animation: rotateOuter 5s linear infinite; /* Анимация для внешней точки */
+}
+
+.middle-dot {
+    animation: rotateMiddle 4s linear infinite; /* Анимация для средней точки */
+}
+
+.inner-dot {
+    animation: rotateInner 3s linear infinite; /* Анимация для внутренней точки */
+}
+
+/* Определение анимации для точек */
+@keyframes rotateOuter {
+    0% { transform: rotate(0deg) translateX(40px); } /* Положение на 0% */
+    100% { transform: rotate(360deg) translateX(40px); } /* Положение на 100% */
+}
+
+@keyframes rotateMiddle {
+    0% { transform: rotate(0deg) translateX(30px); } /* Положение на 0% */
+    100% { transform: rotate(360deg) translateX(30px); } /* Положение на 100% */
+}
+
+@keyframes rotateInner {
+    0% { transform: rotate(0deg) translateX(20px); } /* Положение на 0% */
+    100% { transform: rotate(360deg) translateX(20px); } /* Положение на 100% */
+}
+
+/* Сцена */
+.scene {
+    position: relative;
+    width: 800px; /* Увеличенный размер сцены */
+    height: 400px; /* Увеличенный размер сцены */
+    overflow: hidden;
+}
+
+/* Грязная поверхность */
+.dirt {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to right, #654321 20%, #8B4513 50%, #654321 80%);
+    animation: dirtToGreen 5s forwards 4s; /* Задержка перед изменением цвета */
+}
+/* dirtToBeige 14s forwards 6s */
+
+/* Чистая поверхность */
+.clean-surface {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5dc; /* Чистый бежевый цвет */
+    opacity: 0; /* Изначально скрыта */
+    z-index: 1; /* Под грязной поверхностью */
+    animation: revealCleanSurface 5s forwards 6s; /* Плавное появление */
+}
+
+/* Бутылка распылителя */
+.bottle {
+    position: relative;
+    bottom: 100px; /* Бутылка над каплями */
+    left: 40%; /* Центрируем бутылку */
+    opacity: 1;
+    /* transform: rotate(15deg); Наклон бутылки */
+    animation: bottleMove 1.5s forwards 1s, bottleTilt 4s forwards 2.5s; /* Анимация бутылки */
+}
+
+@keyframes bottleAppear {
+    0% { transform: translateY(10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bottleMove {
+    0% { left: 0px; }
+    100% { top: 170px; } /* Перемещение бутылки к центру */
+}
+
+@keyframes bottleTilt {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg);}
+    100% { transform: rotate(0deg); }
+}
+
+/* Крышка бутылки */
+.cap {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 30px;
+    height: 10px;
+    background: #c2c2c2;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Тело распылителя */
+.body {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 30px;
+    height: 60px;
+    background: #ff5733;
+    border-radius: 5px;
+}
+
+/* Верхняя часть распылителя (вертикальная трапеция) */
+.body::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    width: 30px;
+    height: 15px;
+    transform: rotate(180deg);
+    background-color: #804c40;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+}
+
+/* Носик распылителя */
+.spout {
+    position: absolute;
+    top: -10px;
+    left: 25px;
+    width: 5px;
+    height: 10px;
+    background: #ff5733;
+    border-radius: 5px;
+}
+
+/* Ручка распылителя */
+.handle {
+    position: absolute;
+    top: 16px;
+    left: 30px;
+    width: 5px;
+    height: 30px;
+    transform: rotate(-25deg);
+    background-color: #c2c2c2;
+    animation: handlePress 0.8s forwards 3.2s; /* Анимация нажатия ручки */
+}
+
+/* Анимация нажатия ручки */
+@keyframes handlePress {
+    0% { transform: rotate(-25deg); }
+    50% { transform: rotate(30deg); }
+    100% { transform: rotate(-25deg); }
+}
+
+/* Губка */
+.sponge {
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+    width: 50px;
+    height: 35px;
+    background: #ffff66; /* Желтый цвет губки */
+    border-radius: 5px;
+    z-index: 2;
+    animation: spongeWipe 5s forwards 5.5s; /* Анимация протирания */
+}
+/* , spongeWipeRightAndLeft 2.5s 7s , spongeWipeUp 1.5 9.5s  */
+@keyframes spongeWipeS {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(20px); } /* Протирание */
+    100% { transform: translateY(0); } /* Возвращение губки на место */
+}
+
+@keyframes spongeWipe {
+    0% { transform: translate(0, 0); }                /* Исходное положение */
+    25% { transform: translate(0, 20px); }            /* Опускается вниз */
+    50% { transform: translate(15px, 20px); }         /* Двигается вправо */
+    75% { transform: translate(-15px, 20px); }        /* Двигается влево */
+    100% { transform: translate(0, 0); }              /* Возвращается на исходное положение */
+}
+
+@keyframes spongeWipeDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); } /* Возвращение губки на место */
+}
+
+@keyframes spongeWipeRightAndLeft {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(-15px); }
+    50% { transform: translateY(30px); }
+    75% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); } /* Возвращение губки на место */
+}
+
+@keyframes spongeWipeUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); } /* Возвращение губки на место */
+}
+
+
+/* Капли, вылетающие из носика */
+.droplet {
+    position: absolute;
+    bottom: 120px; /* Начальная позиция капель */
+    left: 50%; /* Центрируем по горизонтали */
+    width: 13px;
+    height: 13px;
+    background-color: green; /* Цвет капель */
+    border-radius: 50%;
+    opacity: 0; /* Изначально невидимые */
+}
+
+/* Положение капель */
+#droplet1 { animation: splashEffect 1.2s forwards 3.4s;  }
+#droplet2 { animation: splashEffectLeft 1.2s forwards 3.4s;}
+#droplet3 { animation: splashEffectRight 1.2s forwards 3.4s;}
+#droplet4 { animation: splashEffect 1.2s forwards 3.6s; }
+#droplet5 { animation: splashEffectLeft 1.2s forwards 3.6s;  }
+#droplet6 { animation: splashEffectRight 1.2s forwards 3.6s; }
+#droplet7 { animation: splashEffect 1.2s forwards 3.8s; }
+#droplet8 { animation: splashEffectLeft 1.2s forwards 3.8s; }
+#droplet9 { animation: splashEffectRight 1.2s forwards 3.8s; }
+
+/* Появление и движение капель */
+/* @keyframes splashEffect {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(30px); opacity: 0; }
+} */
+@keyframes splashEffect {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(0px, 30px); opacity: 0; }
+}
+@keyframes splashEffectLeft {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(-20px, 30px); opacity: 0; }
+}
+@keyframes splashEffectRight {
+    0% { transform: translate(0, 0); opacity: 1; }
+    100% { transform: translate(20px, 30px); opacity: 0; }
+}
+
+/* Звездочки */
+.stars {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: 2rem;
+    animation: starsAppear 4s forwards;
+}
+
+/* Название компании */
+.comp-name {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.8); /* Фон для надписи */
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10;
+    animation: companyNameAppear 5s forwards 11s;
+}
+
+@keyframes companyNameAppear {
+    0% { opacity: 0; }   /* Начало анимации */
+    100% { opacity: 1; } /* Конечное состояние — видимая надпись */
+}
+
+/* Анимации */
+@keyframes dirtToGreen {
+    0% { background: linear-gradient(to right, #654321 20%, #8B4513 50%, #654321 80%); }
+    100% { background: linear-gradient(to right, #7a691d 20%, #194d2f 50%, #3b361b 80%); /* Зеленоватая коричневая поверхность */ }
+}
+@keyframes dirtToBeige {
+    0% { background: linear-gradient(to right, #7a691d 20%, #194d2f 50%, #3b361b 80%); /* Зеленоватая коричневая поверхность */ }
+    100% { background: #f5f5dc; /* Светло-бежевый цвет поверхности */ }
+}
+@keyframes revealCleanSurface {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes starsAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+
+
+/* Стили для формы поиска */
+.search-form,
+.sort-form {
+    margin-bottom: 20px;
+}
+
+/* Сетка продуктов */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* Расстояние между карточками */
+}
+
+/* Карточка товара */
+.product-card {
+    border: 1px solid #ddd; /* Обводка карточки */
+    border-radius: 10px; /* Скругление углов */
+    padding: 15px; /* Внутренние отступы */
+    text-align: center; /* Центрирование текста */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    transition: transform 0.2s; /* Плавный эффект при наведении */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+/* Ссылка на товар */
+.product-link {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+}
+
+/* Кнопка добавления в корзину */
+.add-to-cart-button {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white; /* Цвет текста */
+    padding: 10px 15px; /* Внутренние отступы */
+    border: none; /* Убираем обводку */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Курсор при наведении */
+    margin-top: 20px; /* Отступ сверху */
+    display: block; /* Кнопка занимает всю ширину */
+    width: 100%; /* Ширина кнопки */
+    text-align: center; /* Центрирование текста */
+}
+
+.add-to-cart-button:hover {
+    background-color: #218838; /* Темно-зеленый при наведении */
+}
+
+/* Чекбокс */
+.product-checkbox {
+    margin-top: 10px; /* Отступ сверху */
+}

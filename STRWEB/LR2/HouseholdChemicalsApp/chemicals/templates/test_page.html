@@ -1,33 +1,34 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Полигон для тестирования элементов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Тестовая страница для элементов HTML</h1>
-        <nav>
-            <ul>
-                <li><a href="#section-listing">Листинг</a></li>
-                <li><a href="#section-abbr">Сокращения и определения</a></li>
-                <li><a href="#section-quote">Цитаты и четверостишие</a></li>
-                <li><a href="#section-links">Ссылки</a></li>
-                <li><a href="#section-lists">Списки</a></li>
-                <li><a href="#section-forms">Форма с элементами управления</a></li>
-                <li><a href="#section-table">Таблица с заголовками</a></li>
-                <li><a href="#section-media">Медиа: Видео, Аудио и Изображения</a></li>
+    <header class="header">
+        <h1 class="header__title">Тестовая страница для элементов HTML</h1>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a class="nav__link" href="#section-listing">Листинг</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-abbr">Сокращения и определения</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-quote">Цитаты и четверостишие</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-links">Ссылки</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-lists">Списки</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-forms">Форма с элементами управления</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-table">Таблица с заголовками</a></li>
+                <li class="nav__item"><a class="nav__link" href="#section-media">Медиа: Видео, Аудио и Изображения</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- filedset и legend -->
-        <!-- Листинг кода -->
-        <section id="section-listing">
-            <h2>Пример листинга кода</h2>
-            <pre>
+        <section id="section-listing" class="section">
+            <h2 class="section__title">Пример листинга кода</h2>
+            <pre class="code">
 <code>
 def hello_world():
     print("Hello, World!")
@@ -35,28 +36,26 @@ def hello_world():
             </pre>
         </section>
 
-        <!-- Сокращения и определения -->
-        <section id="section-abbr">
-            <h2>Сокращения и определения</h2>
+        <section id="section-abbr" class="section">
+            <h2 class="section__title">Сокращения и определения</h2>
             <p>Например, <abbr title="HyperText Markup Language">HTML</abbr> является языком разметки для создания веб-страниц.</p>
-            <dl>
-                <dt>API</dt>
-                <dd>Интерфейс прикладного программирования, используемый для взаимодействия программных компонентов.</dd>
-                <dt>REST</dt>
-                <dd>Архитектурный стиль для проектирования сетевых приложений.</dd>
+            <dl class="definition-list">
+                <dt class="definition-list__term">API</dt>
+                <dd class="definition-list__description">Интерфейс прикладного программирования, используемый для взаимодействия программных компонентов.</dd>
+                <dt class="definition-list__term">REST</dt>
+                <dd class="definition-list__description">Архитектурный стиль для проектирования сетевых приложений.</dd>
             </dl>
         </section>
 
-        <!-- Цитаты и четверостишие -->
-        <section id="section-quote">
-            <h2>Цитаты и четверостишие</h2>
-            <blockquote>
+        <section id="section-quote" class="section">
+            <h2 class="section__title">Цитаты и четверостишие</h2>
+            <blockquote class="quote">
                 «Программирование сегодня — это гонка между инженерами, которые стремятся создать более крупные и совершенные идиотоустойчивые программы, 
                 и Вселенной, которая пытается создать более крупных и совершенных идиотов.»
-                <footer>— Рик Кук</footer>
+                <footer class="quote__footer">— Рик Кук</footer>
             </blockquote>
-            <h3>Четверостишие</h3>
-            <pre>
+            <h3 class="poem-title">Четверостишие</h3>
+            <pre class="poem">
 Роза красная,
 Фиалка синяя,
 Я люблю кодить,
@@ -64,58 +63,55 @@ def hello_world():
             </pre>
         </section>
 
-        <!-- Ссылки -->
-        <section id="section-links">
-            <h2>Ссылки</h2>
-            <p>Пример обычной ссылки: <a href="https://www.example.com">Посетите наш сайт</a></p>
-            <p>Ссылка для скачивания документа: <a href="/path/to/document.pdf" download>Скачать PDF</a></p>
+        <section id="section-links" class="section">
+            <h2 class="section__title">Ссылки</h2>
+            <p>Пример обычной ссылки: <a class="link" href="https://www.example.com">Посетите наш сайт</a></p>
+            <p>Ссылка для скачивания документа: <a class="link" href="/path/to/document.pdf" download>Скачать PDF</a></p>
         </section>
 
-        <!-- Списки -->
-        <section id="section-lists">
-            <h2>Списки</h2>
-            <h3>Нумерованный список</h3>
-            <ol>
-                <li>Элемент первый</li>
-                <li>Элемент второй</li>
-                <li>Элемент третий</li>
+        <section id="section-lists" class="section">
+            <h2 class="section__title">Списки</h2>
+            <h3 class="list-title">Нумерованный список</h3>
+            <ol class="numbered-list">
+                <li class="numbered-list__item">Элемент первый</li>
+                <li class="numbered-list__item">Элемент второй</li>
+                <li class="numbered-list__item">Элемент третий</li>
             </ol>
 
-            <h3>Маркированный список</h3>
-            <ul>
-                <li>Первый пункт</li>
-                <li>Второй пункт</li>
-                <li>Третий пункт</li>
+            <h3 class="list-title">Маркированный список</h3>
+            <ul class="bullet-list">
+                <li class="bullet-list__item">Первый пункт</li>
+                <li class="bullet-list__item">Второй пункт</li>
+                <li class="bullet-list__item">Третий пункт</li>
             </ul>
 
-            <h3>Вложенные списки</h3>
-            <ul>
-                <li>Первый уровень
-                    <ul>
-                        <li>Второй уровень</li>
+            <h3 class="list-title">Вложенные списки</h3>
+            <ul class="bullet-list">
+                <li class="bullet-list__item">Первый уровень
+                    <ul class="bullet-list">
+                        <li class="bullet-list__item">Второй уровень</li>
                     </ul>
                 </li>
             </ul>
         </section>
 
-        <!-- Форма с элементами управления -->
-        <section id="section-forms">
-            <h2>Форма с элементами управления</h2>
-            <form action="/submit" method="post">
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="name" required><br>
+        <section id="section-forms" class="section">
+            <h2 class="section__title">Форма с элементами управления</h2>
+            <form class="form" action="/submit" method="post">
+                <label class="form__label" for="name">Имя:</label>
+                <input class="form__input" type="text" id="name" name="name" required><br>
 
-                <label for="email">Электронная почта:</label>
-                <input type="email" id="email" name="email" required><br>
+                <label class="form__label" for="email">Электронная почта:</label>
+                <input class="form__input" type="email" id="email" name="email" required><br>
 
-                <label for="age">Возраст:</label>
-                <input type="number" id="age" name="age" min="18" max="100"><br>
+                <label class="form__label" for="age">Возраст:</label>
+                <input class="form__input" type="number" id="age" name="age" min="18" max="100" required><br>
 
-                <label for="feedback">Отзыв:</label>
-                <textarea id="feedback" name="feedback" rows="4"></textarea><br>
-                <wbr>
-                <label for="rating">Оценка:</label>
-                <select id="rating" name="rating">
+                <label class="form__label" for="feedback">Отзыв:</label>
+                <textarea class="form__textarea" id="feedback" name="feedback" rows="4"></textarea><br>
+                
+                <label class="form__label" for="rating">Оценка:</label>
+                <select class="form__select" id="rating" name="rating">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -123,61 +119,90 @@ def hello_world():
                     <option value="5">5</option>
                 </select><br>
 
-                <input type="submit" value="Отправить">
+                <input class="form__submit" type="submit" value="Отправить">
             </form>
         </section>
 
-        <!-- Таблица с заголовками -->
-        <section id="section-table">
-            <h2>Таблица с заголовочными ячейками и объединёнными ячейками</h2>
-            <table border="1">
+        <section id="section-table" class="section">
+            <h2 class="section__title">Таблица с заголовочными ячейками и объединёнными ячейками</h2>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th id="header1">Категория</th>
-                        <th id="header2">Количество</th>
+                        <th class="table__header" id="header1">Категория</th>
+                        <th class="table__header" id="header2">Количество</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td headers="header1">Продукты</td>
-                        <td headers="header2">15</td>
+                        <td class="table__data" headers="header1">Продукты</td>
+                        <td class="table__data" headers="header2">15</td>
                     </tr>
                     <tr>
-                        <td headers="header1" colspan="2">Объединённая ячейка</td>
+                        <td class="table__data" headers="header1" colspan="2">Объединённая ячейка</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-        <!-- Медиа: Видео, Аудио и Изображения -->
-        <section id="section-media">
-            <h2>Медиа: Видео, Аудио и Изображения</h2>
+        <div class="table-container">
             
-            <h3>Изображение </h3>
-            <img src="https://www.bytovaya-himiya.ru/wp-content/uploads/2018/10/bytovaya-himiya-klassifikatsiya.jpg" alt="Пример изображения" style="max-width: 100%; height: auto;">
+            <table class="table">
+                <caption class="table__title">Заголовок таблицы</caption>
+                <thead>
+                    <tr class="table__header">
+                        <th>Заголовок 1</th>
+                        <th>Заголовок 2</th>
+                        <th>Заголовок 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ячейка 1.1</td>
+                        <td>Ячейка 1.2</td>
+                        <td></td> <!-- Пустая ячейка -->
+                    </tr>
+                    <tr>
+                        <td>Ячейка 2.1</td>
+                        <td></td> <!-- Пустая ячейка -->
+                        <td>Ячейка 2.3</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 3.1</td>
+                        <td>Ячейка 3.2</td>
+                        <td>Ячейка 3.3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
 
-            <h3>Видеоплеер</h3>
-            <video controls width="320" height="240">
+        <section id="section-media" class="section">
+            <h2 class="section__title">Медиа: Видео, Аудио и Изображения</h2>
+            
+            <h3 class="media-title">Изображение</h3>
+            <img class="media__image" src="https://www.bytovaya-himiya.ru/wp-content/uploads/2018/10/bytovaya-himiya-klassifikatsiya.jpg" alt="Пример изображения" style="max-width: 100%; height: auto;">
+
+            <h3 class="media-title">Видеоплеер</h3>
+            <video class="media__video" controls width="320" height="240">
                 <source src="movie.mp4" type="video/mp4">
                 Ваш браузер не поддерживает тег video.
             </video>
 
-            <h3>Аудиоплеер</h3>
-            <audio controls>
+            <h3 class="media-title">Аудиоплеер</h3>
+            <audio class="media__audio" controls>
                 <source src="audio.mp3" type="audio/mp3">
                 Ваш браузер не поддерживает тег audio.
             </audio>
         </section>
 
-        <!-- iframe -->
-        <section id="section-iframe">
-            <h2>Встраивание iframe</h2>
-            <iframe src="https://www.youtube.com/embed/bWTjzyOR_78" title="Пример iframe" width="400" height="300"></iframe>
+        <section id="section-iframe" class="section">
+            <h2 class="section__title">Встраивание iframe</h2>
+            <iframe class="iframe" src="https://www.youtube.com/embed/bWTjzyOR_78" title="Пример iframe" width="400" height="300"></iframe>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Тестовая страница</p>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2024 Тестовая страница</p>
     </footer>
 </body>
 </html>

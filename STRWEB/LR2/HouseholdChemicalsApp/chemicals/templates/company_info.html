@@ -1,43 +1,43 @@
+
 {% extends "base.html" %}
 
-
 {% block content %}
-<h2>О компании</h2>
-<p>{{ company_info.about_text }}</p>
+<div class="company-info">
+    <h2>О компании</h2>
+    <p>{{ company_info.about_text }}</p>
 
-<h2>Видео о компании</h2>
-{% if company_info.video_url %}
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/P08RpPoRmUY" frameborder="0" allowfullscreen></iframe>
-{% else %}
-    <p>Видео о компании отсутствует.</p>
-{% endif %}
-
-<!-- <h2>Логотип</h2>
-{% if company_info.logo %}
-    <img src="{{ company_info.logo.url }}" alt="Логотип компании" style="width: 200px;">
-{% else %}
-    <p>Логотип отсутствует.</p>
-{% endif %} -->
-
-<h2>История компании</h2>
-<p>{{ company_info.history }}</p>
-
-<h2>Реквизиты компании</h2>
-<p>{{ company_info.requisites }}</p>
-
-<h2>Сертификат</h2>
-    <div style="border: 2px solid black; padding: 20px; width: 600px; text-align: center; margin: auto;">
-        <h3>Сертификат о членстве в РБХ (Реестре бытовой химии)</h3>
-        <p><strong>ЕДИНЫЙ РЕЕСТР ПОСТАВЩИКОВ БЫТОВОЙ ХИМИИ</strong></p>
-        <p><strong>СВИДЕТЕЛЬСТВО</strong></p>
-        <p>о внесении сведений</p>
-        <p>г. Минск</p>
-        <p>ООО "HouseholdChemicals"</p>
-        <p>ИНН 1234567890</p>
-        <p>Регистрационный номер: 0011223344</p>
-        <p>Дата выдачи: 20 сентября 2024 г.</p>
-        <p>Директор: Дудко Ю.И.</p>
-        <p>Ассоциация "РБХ"</p>
+    <h2>Видео о компании</h2>
+    <div class="video-container">
+        {% if company_info.video_url %}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/P08RpPoRmUY" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+            <p>Видео о компании отсутствует.</p>
+        {% endif %}
     </div>
+
+    <h2>История компании</h2>
+    <p>{{ company_info.history }}</p>
+
+    <h2>Реквизиты компании</h2>
+    <p class="requisites">{{ company_info.requisites }}</p>
+
+    <h2 class="certificate-title">Сертификат о членстве</h2>
+<div class="certificate">
+    <h3 class="certificate-header">Сертификат о членстве в РБХ</h3>
+    <p class="certificate-subtitle"><strong>ЕДИНЫЙ РЕЕСТР ПОСТАВЩИКОВ БЫТОВОЙ ХИМИИ</strong></p>
+    <p class="certificate-text"><strong>СВИДЕТЕЛЬСТВО</strong></p>
+    <p class="certificate-text">Данный сертификат удостоверяет, что</p>
+    <h4 class="certificate-company">ООО "HouseholdChemicals"</h4>
+    <p class="certificate-text">внесена в реестр поставщиков бытовой химии</p>
+    <p class="certificate-location">г. Минск</p>
+    <p class="certificate-details"><strong>ИНН:</strong> 1234567890</p>
+    <p class="certificate-details"><strong>Регистрационный номер:</strong> 0011223344</p>
+    <p class="certificate-date"><strong>Дата выдачи:</strong> 20 сентября 2024 г.</p>
+    <p class="certificate-director"><strong>Директор:</strong> Дудко Ю.И.</p>
+    <p class="certificate-association">Ассоциация "РБХ"</p>
+</div>
+
+</div>
 {% endblock %}
+
 

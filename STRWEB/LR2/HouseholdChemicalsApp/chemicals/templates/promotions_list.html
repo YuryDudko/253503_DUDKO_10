@@ -1,33 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section aria-labelledby="promo-heading">
+<section aria-labelledby="promo-heading" class="promo-section">
     <header>
         <h2 id="promo-heading">Промокоды и купоны</h2>
     </header>
 
     <!-- Список действующих и архивных промокодов -->
-    <ul>
+    <ul class="promo-list">
         {% for promo in promotions_list %}
-        <li>
-            <article itemscope itemtype="https://schema.org/DiscountOffer">
+        <li class="promo-item">
+            <article itemscope itemtype="https://schema.org/DiscountOffer" class="promo-card">
                 <header>
                     <h3 itemprop="name">Код: {{ promo.code }}</h3>
                 </header>
                 
-                <p>
+                <p class="promo-status">
                     <!-- Статус промокода -->
                     <strong>Status:</strong> 
                     <span itemprop="availability" content="{% if promo.is_active %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}">
                         {% if promo.is_active %}
-                            <mark>Активен</mark>
+                            <mark class="active">Активен</mark>
                         {% else %}
-                            <s>Неактивен</s>
+                            <s class="inactive">Неактивен</s>
                         {% endif %}
                     </span>
                 </p>
                 
-                <p>
+                <p class="promo-expiration">
                     <!-- Дата истечения (если есть) -->
                     {% if promo.expiration_date %}
                     <time datetime="{{ promo.expiration_date|date:'Y-m-d' }}">
@@ -47,4 +47,3 @@
     </footer>
 </section>
 {% endblock %}
-

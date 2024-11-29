@@ -2,16 +2,18 @@
 
 {% block content %}
 <h2>Контакты</h2>
-<ul>
+<ul class="contacts-list">
     {% for contact in contacts_list %}
-    <li>
+    <li class="contact-item">
         {% if contact.photo %}
-        <img src="{{ contact.photo.url }}" alt="{{ contact.first_name }}" style="width: 100px; height: 100px;">
+        <img src="{{ contact.photo.url }}" alt="{{ contact.first_name }}" class="contact-photo">
         {% endif %}
-        <h3>{{ contact.first_name }} {{ contact.last_name }}</h3>
-        <p>Должность: {{ contact.position }}</p>
-        <p>Телефон: {{ contact.contact_info }}</p>
-        <p>Возраст: {{ contact.age }}</p>
+        <div class="contact-info">
+            <h3>{{ contact.first_name }} {{ contact.last_name }}</h3>
+            <p>Должность: {{ contact.position }}</p>
+            <p>Телефон: {{ contact.contact_info }}</p>
+            <p>Возраст: {{ contact.age }}</p>
+        </div>
     </li>
     {% endfor %}
 </ul>
