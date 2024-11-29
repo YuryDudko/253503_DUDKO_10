@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Новости</h2>
+<ul class="news-list">
+    {% for article in articles %}
+    <article class="news-article">
+        <header>
+            <h3><a href="{% url 'news_detail' article.id %}">{{ article.title }}</a></h3>
+        </header>
+        <figure>
+            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="news-image">
+            <figcaption class="news-caption">{{ article.title }}</figcaption>
+        </figure>
+        <p class="short-description">{{ article.short_description }}</p>
+        <footer>
+            <a href="{% url 'news_detail' article.id %}" class="read-more">Читать далее</a>
+        </footer>
+    </article>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_news' %}">Добавить новость</a>
+{% endblock %}

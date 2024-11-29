@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Личный кабинет</h2>
+<p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Роль:</strong> {{ profile.get_role_display }}</p>
+
+{% if profile.role == 'customer' %}
+    <p><strong>Имя:</strong> {{ instance.first_name }}</p>
+    <p><strong>Фамилия:</strong> {{ instance.last_name }}</p>
+    <p><strong>Телефон:</strong> {{ instance.phone }}</p>
+    <p><strong>Адрес:</strong> {{ instance.address }}</p>
+    <p><strong>Город:</strong> {{ instance.city }}</p>
+{% elif profile.role == 'employee' %}
+    <p><strong>Имя:</strong> {{ instance.first_name }}</p>
+    <p><strong>Фамилия:</strong> {{ instance.last_name }}</p>
+    <p><strong>Должность:</strong> {{ instance.position }}</p>
+    <p><strong>Контактная информация:</strong> {{ instance.contact_info }}</p>
+{% endif %}
+<a href="{% url 'profile_edit' %}" class="btn btn-primary">Редактировать</a>
+<a href="{% url 'logout' %}" class="btn btn-secondary">Выйти</a>
+
+<h3>Ваши заказы</h3>
+{% if orders %}
+    <ul>
+        {% for order in orders %}
+        <li>
+            <p><strong>Номер заказа:</strong> {{ order.id }}</p>
+            <p><strong>Дата заказа:</strong> {{ order.order_date }}</p>
+            <p><strong>Дата доставки:</strong> {{ order.delivery_date }}</p>
+            <p><strong>Товары:</strong></p>
+            <ul>
+                {% for product in order.products.all %}
+                <li>{{ product.name }} ({{ product.price }} {{ product.unit }})</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас нет заказов.</p>
+{% endif %}
+{% endblock %}

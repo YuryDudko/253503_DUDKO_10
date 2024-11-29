@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Оплата</h2>
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+<form method="post" action="{% url 'place_order' %}">
+    {% csrf_token %}
+    <p>Введите данные для оплаты:</p>
+    <label>Номер карты:</label><br>
+    <input type="text" name="card_number" required><br>
+    <label>Дата истечения:</label><br>
+    <input type="text" name="expiry_date" required><br>
+    <label>CVV:</label><br>
+    <input type="text" name="cvv" required><br>
+    <button type="submit">Оплатить</button>
+</form>
+{% endblock %}

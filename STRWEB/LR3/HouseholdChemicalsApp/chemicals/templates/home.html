@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Последняя статья</h2>
+{% if latest_news %}
+    <article class="latest-article">
+        <h3>{{ latest_news.title }}</h3>
+        <p>{{ latest_news.content|truncatewords:30 }}</p>
+        
+        <!-- Проверка, что у статьи есть изображение -->
+        {% if latest_news.image %}
+            <img src="{{ latest_news.image.url }}" alt="{{ latest_news.title }}" class="article-image">
+        {% else %}
+            <p>Изображение отсутствует.</p>
+        {% endif %}
+    </article>
+{% else %}
+    <p>Нет опубликованных статей.</p>
+{% endif %}
+
+<h2>Реклама</h2>
+<div class="banner">
+    <img src="{% static 'img/AD1.png' %}" alt="Реклама 1" class="banner-image">
+    <img src="{% static 'img/AD2.png' %}" alt="Реклама 2" class="banner-image">
+</div>
+
+<h2>Каталог товаров</h2>
+<form method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q }}">
+    <button type="submit">Искать</button>
+</form>
+
+<form method="GET" class="sort-form">
+    <select name="sort_by">
+        <option value="name">Имя</option>
+        <option value="price">Цена</option>
+    </select>
+    <button type="submit">Сортировать</button>
+</form>
+
+<form method="post" action="{% url 'add_to_cart' %}" class="product-form">
+    {% csrf_token %}
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <a href="{% url 'product_detail' product.id %}" class="product-link">
+                <strong>{{ product.name }}</strong>
+            </a>
+            <p>Цена: {{ product.price }}<br>
+            Единица измерения: {{ product.unit }}</p>
+            <input type="checkbox" name="product_ids" value="{{ product.id }}" class="product-checkbox">
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="add-to-cart-button">Добавить в корзину</button>
+</form>
+
+<h2>Наши партнёры</h2>
+<div class="partners-container">
+    {% for partner in partners %}
+    <div class="partner-card">
+        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo">
+        <p class="partner-name">{{ partner.name }}</p>
+        <a href="{{ partner.website }}" target="_blank" class="partner-website">{{ partner.website }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Прелоадер -->
+<!-- <div class="preloader" id="preloader">
+    <div class="circle">
+        <div class="dot" style="--i:1;"></div>
+        <div class="dot" style="--i:2;"></div>
+        <div class="dot" style="--i:3;"></div>
+    </div>
+    <div class="circle circle-outer">
+        <div class="dot" style="--i:4;"></div>
+        <div class="dot" style="--i:5;"></div>
+        <div class="dot" style="--i:6;"></div>
+    </div>
+    <div class="circle circle-middle">
+        <div class="dot" style="--i:7;"></div>
+        <div class="dot" style="--i:8;"></div>
+        <div class="dot" style="--i:9;"></div>
+    </div>
+</div> -->
+
+<div class="preloader">
+    <div class="circle red"></div>
+    <div class="outer-circle"></div>
+    <div class="middle-circle"></div>
+    <div class="inner-circle"></div>
+    <div class="dot outer-dot"></div>
+    <div class="dot middle-dot"></div>
+    <div class="dot inner-dot"></div>
+</div>
+
+<div class="scene">
+    <div class="dirt"></div>
+    <div class="clean-surface"></div>
+
+    <!-- Бутылка распылителя -->
+    <div class="bottle">
+        <div class="cap"></div>
+        <div class="body"></div>
+        <div class="handle"></div>
+        <div class="spout"></div>
+    </div>
+
+    <div class="sponge"></div>
+    <div class="comp-name"> Households Chemicals Shop</div>
+
+    <!-- Капли, вылетающие из носика -->
+    <div class="droplet" id="droplet1"></div>
+    <div class="droplet" id="droplet2"></div>
+    <div class="droplet" id="droplet3"></div>
+    <div class="droplet" id="droplet4"></div>
+    <div class="droplet" id="droplet5"></div>
+    <div class="droplet" id="droplet6"></div>
+    <div class="droplet" id="droplet7"></div">
+    <div class="droplet" id="droplet8"></div>
+    <div class="droplet" id="droplet9"></div>
+
+    <div class="stars"></div>
+</div>
+
+
+
+
+
+
+{% endblock %}

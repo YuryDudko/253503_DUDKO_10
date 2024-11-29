@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="news-detail-article">
+    <header>
+        <h1 class="news-title">{{ article.title }}</h1>
+        <p class="publication-date">Опубликовано: {{ article.published_date }}</p>
+    </header>
+    <figure>
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" class="news-detail-image">
+        <figcaption class="news-caption">{{ article.title }}</figcaption>
+    </figure>
+    <div class="article-content">
+        {{ article.content }}
+        <!-- <p></p> -->
+    </div>
+    <footer>
+        <a href="{% url 'news_list' %}" class="read-more">Вернуться к новостям</a>
+    </footer>
+</article>
+{% endblock%}

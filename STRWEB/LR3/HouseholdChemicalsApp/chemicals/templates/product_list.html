@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="catalog-title">Каталог товаров</h2>
+
+<!-- Форма для поиска товаров -->
+<form method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q }}" class="search-input">
+    <button type="submit" class="search-button">Искать</button>
+</form>
+
+<!-- Форма для сортировки товаров -->
+<form method="GET" class="sort-form">
+    <select name="sort_by" class="sort-select">
+        <option value="name">Имя</option>
+        <option value="price">Цена</option>
+    </select>
+    <button type="submit" class="sort-button">Сортировать</button>
+</form>
+
+<!-- Форма для добавления товаров в корзину -->
+<form method="post" action="{% url 'add_to_cart' %}" class="product-form">
+    {% csrf_token %}
+    <ul class="product-grid">
+        {% for product in products %}
+        <li class="product-card">
+            <strong class="product-name">{{ product.name }}</strong>
+            <div class="product-details">
+                <span class="product-price">Цена: {{ product.price }}</span><br>
+                <span class="product-unit">Единица измерения: {{ product.unit }}</span>
+            </div>
+            <input type="checkbox" name="product_ids" value="{{ product.id }}" class="product-checkbox">
+        </li>
+        {% endfor %}
+    </ul>
+    <button type="submit" class="add-to-cart-button">Добавить в корзину</button>
+</form>
+{% endblock %}
